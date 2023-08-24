@@ -1,0 +1,16 @@
+class Solution:
+    def maxSubArray(self, nums: list[int]) -> int:
+        maxSub = nums[0]
+        curSum = 0
+
+        for n in nums:
+            if curSum < 0:
+                curSum = 0
+            curSum += n
+            maxSub = max(maxSub, curSum)
+        return maxSub
+
+s = Solution()    
+nums = [1,-1,2,-4,-1,8,-2]
+
+print(s.maxSubArray(nums))
